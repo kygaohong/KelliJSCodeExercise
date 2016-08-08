@@ -26,9 +26,10 @@ $(document).ready(function(){
 		var objCurrentDate = objStartingDate;
 		
 		do {	// each month
-			currentMonth = monthNames[objCurrentDate.getMonth()]+ ", "+objCurrentDate.getFullYear();
+			var currentMonth = monthNames[objCurrentDate.getMonth()];
+			var currentYear = objCurrentDate.getFullYear();
 			html = html + '<div class="monthly-day-title-wrap"><div>'+dayNames[0]+'</div><div>'+dayNames[1]+'</div><div>'+dayNames[2]+'</div><div>'+dayNames[3]+'</div><div>'+dayNames[4]+'</div><div>'+dayNames[5]+'</div><div>'+dayNames[6]+'</div></div><div class="monthly-day-wrap"></div>';
-			html = html + '<div class = "month-year-title-wrap">' + currentMonth + '</div>';
+			html = html + '<div class = "month-year-title-wrap">' + currentMonth + ', ' + currentYear + '</div>';
 			html = html + '<div class="monthly-day-wrap">';
 			
 			
@@ -52,16 +53,18 @@ $(document).ready(function(){
 				html = html + '<div class="monthly-day-wrap">';
 				for (i = 0; i < 7; i++) { //each day
 					if(objCurrentDate.getTime() > lastDayOfMonth.getTime()+68400000){	//objCurrentDate is 19:00 but lastDayOfMonth is 0:00
-						//console.log(objCurrentDate + "   >  "+ lastDayOfMonth);
-						html = html + '<div>' + ' '+ '</div>'; 			//insert blank cell after the last day
+						console.log(objCurrentDate + "   >  "+ lastDayOfMonth);
+						html = html + '<div>' + ' '+ '</div>'; 			//insert blank cell after the last day of the month
 					} else{
 						html = html + '<div>'+  objCurrentDate.getDate() +'</div>';
 						objCurrentDate.setDate(objCurrentDate.getDate() + 1);
-						//console.log(objCurrentDate + "   <=  "+ lastDayOfMonth);
+						console.log(objCurrentDate + "   <=  "+ lastDayOfMonth);
 					}
 				}
-				html = html +'</div>';		//end of a week		
-			} while (objCurrentDate.getTime() < lastDayOfMonth.getTime()+68400000);
+				html = html +'</div>';		//end of a week	
+				objCurrentDate.setDate(objCurrentDate.getDate() + 1); //to avoid indefinite loop 
+				if(objCurrentDate.getTime() > lastDayOfMonth.getTime()+68400000){break;}//jump out if the final date has been touched
+			} while (monthNames[objCurrentDate.getMonth()] === currentMonth);
 			
 			html = html +'</div><br><br>';	//end of a month			
 		} while (objCurrentDate.getTime() < objEndingDate.getTime()+68400000);
