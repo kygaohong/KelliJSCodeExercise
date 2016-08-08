@@ -1,0 +1,72 @@
+/* Input form */
+form {
+	display: inline-block;
+	text-align: center;
+}
+
+input {
+    width: 18%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+
+input[type=submit]{
+    width: 10%;
+}
+
+/* Day of the week headings */
+.monthly-day-title-wrap {
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	background: #fff;
+	border-bottom: 1px solid #EBEBEB;
+}
+.monthly-day-title-wrap div {
+	width: 14.28%;
+	display:table-cell;
+	box-sizing:border-box;
+	position: relative;
+	font-weight: bold;
+	text-align:center;
+	text-transform: uppercase;
+	font-size:18px;
+}
+/* month-year headings */
+.month-year-title-wrap {
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	background: #fff;
+	border-bottom: 1px solid #EBEBEB;
+	text-align:center;
+}
+
+/* Calendar Days */
+.monthly-day-wrap {
+	display:table;
+	table-layout:fixed;
+	width:100%;
+	background: #fff;
+	border-bottom: 1px solid #EBEBEB;
+}
+.monthly-day-wrap div {
+	width: 14.28%;
+	display:table-cell;
+	text-align:center;
+	vertical-align: middle;
+	box-sizing:border-box;
+	position: relative;
+	font-weight: bold;
+	font-size:18px;
+	color:inherit;
+	background: #fff;
+	box-shadow: 0 0 0 1px #EBEBEB;
+	-webkit-transition: .25s;
+	transition:.25s;
+	padding:0;
+	text-decoration: none;
+}
+

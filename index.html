@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>A Calendar, step 2</title>
+	<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<form>
+	  <fieldset>
+		Start Date:   <input type="date" name="StartDate" id="StartDate">
+		Number of days: <input type="number" name="NumberOfdays" id="NumberOfdays">
+		Country code (Two letters): <input type="text" name="CountryCode" id="CountryCode" pattern="[A-Za-z]{2}" title="Two letters country code">
+		<input id="form-id" type="submit" value="Submit">
+	  </fieldset>
+	</form>
+	
+<div class="page">
+		<div style="width:100%; max-width:600px; display:inline-block;">
+			<div class="monthly" id="mycalendar">
+				<p> </p>
+			</div>
+		</div>
+</div>	
+	
+
+<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/showCalendar.js" type="text/javascript" charset="utf-8"></script>
+
+
+</body>
+</html>
